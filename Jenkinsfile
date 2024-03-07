@@ -7,6 +7,7 @@ pipeline {
                 script {
                     // Compile the .cpp file using a shell script
                     echo 'Build'
+                    sh 'gpp helloworld.cpp'
                 }
             }
         }
