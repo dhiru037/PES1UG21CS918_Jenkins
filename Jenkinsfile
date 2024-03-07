@@ -4,33 +4,36 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
-                // Add commands to build your project
+                script {
+                    // Compile the .cpp file using a shell script
+                    echo 'Build'
+                }
             }
         }
+
         stage('Test') {
             steps {
-                echo 'Testing...'
-                // Add commands to run tests
+                script {
+                    // Print the output of the compiled .cpp file
+                    echo ' test'
+                }
             }
         }
+
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
-                // Add commands to deploy your application
+                script {
+                    // Your deployment steps go here
+                    echo 'Deploying...'
+                    // Add your deployment commands or scripts
+                }
             }
         }
     }
 
     post {
-        always {
-            catchError {
-                echo 'Pipeline succeeded!'
-            }
-        }
         failure {
             echo 'Pipeline failed!'
         }
     }
 }
-
